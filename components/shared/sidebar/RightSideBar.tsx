@@ -23,42 +23,42 @@ const RightSideBar = () => {
   ];
   const tags = [
     {
-      _id: 1,
+      _id: "1",
       name: "Javascript",
       reqNo: "20152+",
     },
     {
-      _id: 2,
+      _id: "2",
       name: "Next.js",
       reqNo: "18493+",
     },
     {
-      _id: 3,
+      _id: "3",
       name: "React.js",
       reqNo: "16269+",
     },
     {
-      _id: 4,
+      _id: "4",
       name: "Node.js",
       reqNo: "15121+",
     },
     {
-      _id: 5,
+      _id: "5",
       name: "Python",
       reqNo: "14431+",
     },
     {
-      _id: 6,
+      _id: "6",
       name: "Microsoft Azure",
       reqNo: "9429+",
     },
     {
-      _id: 7,
+      _id: "7",
       name: "PostgreSql",
       reqNo: "9429+",
     },
     {
-      _id: 8,
+      _id: "8",
       name: "Machine Learning",
       reqNo: "9429+",
     },
