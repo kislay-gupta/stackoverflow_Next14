@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { QuestionSchema } from "@/lib/validation";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question.action";
 
 const type: any = "create";
 const Question = () => {
@@ -35,11 +36,11 @@ const Question = () => {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof QuestionSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  async function onSubmit(values: z.infer<typeof QuestionSchema>) {
     setIsSubmitting(true);
-
+    try {
+      await createQuestion({});
+    } catch (error) {}
     console.log(values);
   }
   const handleInputKeyDown = (
@@ -119,6 +120,8 @@ const Question = () => {
                       // @ts-ignore
                       (editorRef.current = editor)
                     }
+                    onBlur={field.onBlur}
+                    onEditorChange={(content) => field.onChange(content)}
                     initialValue=""
                     init={{
                       height: 350,
