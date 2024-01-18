@@ -1,4 +1,3 @@
-"use client";
 import LocalSearch from "@/components/shared/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -7,7 +6,10 @@ import { HomePageFilters } from "@/constants/filter";
 import HomeFilters from "@/components/home/HomeFilters";
 import NoResult from "@/components/shared/NoResult";
 import QuestionCard from "@/components/cards/QuestionCard";
-export default function Home() {
+import { getQuestions } from "@/lib/actions/question.action";
+export default async function Home() {
+  const result = await getQuestions({});
+  console.log(result.questions);
   const questions = [
     {
       _id: "1",
@@ -70,8 +72,8 @@ export default function Home() {
       </div>
       <HomeFilters />
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}
@@ -79,7 +81,7 @@ export default function Home() {
               tags={question.tags}
               author={question.author}
               upvotes={question.upvotes}
-              views={question.views}
+              views={question.view}
               answers={question.answers}
               createdAt={question.createdAt}
             />

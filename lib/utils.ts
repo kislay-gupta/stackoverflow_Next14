@@ -40,8 +40,16 @@ const timestamp = getTimestamp(createdAt);
 console.log(timestamp);
 
 export const getFormattedNumber = (number: number): string => {
-  if (number < 1000) return number.toString(); // Return the same number
-  if (number < 1000000) return `${(number / 1000).toFixed(1)}K`; // Convert to K for number from 1000 < n < 1 million
-  if (number < 1000000000) return `${(number / 1000000).toFixed(1)}M`; // Convert to M for number from 1 million < n < 1 billion
-  return `${(number / 1000000000).toFixed(1)}B`; // Convert to B for number n > 1 billion
+  if (number >= 1000000) {
+    // If the number is in millions (1,000,000 or more)
+    const millions = (number / 1000000).toFixed(2);
+    return `${millions}M`;
+  } else if (number >= 1000) {
+    // If the number is in thousands (1,000 or more)
+    const thousands = (number / 1000).toFixed(2);
+    return `${thousands}K`;
+  } else {
+    // If the number is less than 1,000, simply return the number as is
+    return `${number}`;
+  }
 };

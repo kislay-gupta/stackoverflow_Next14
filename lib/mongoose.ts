@@ -10,7 +10,7 @@ export const connectToDatabase = async () => {
 
   try {
     await mongoose.connect(process.env.MONGODB_URL, {
-      dbName: "overflowdev",
+      dbName: "stackoverflow_next",
     });
     isConnected = true;
     console.log("MongoDB is connected");
