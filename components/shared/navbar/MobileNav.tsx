@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 const NavContent = () => {
   const pathname = usePathname();
   return (
-    <section className="flex h-full flex-col gap-6 pt-16">
+    <section className="flex h-full flex-col gap-4 pt-16">
       {sidebarLinks.map((item) => {
         const isActive =
           (pathname.includes(item.route) && item.route.length > 1) ||
@@ -28,7 +28,7 @@ const NavContent = () => {
                 isActive
                   ? "primary-gradient rounded-lg text-light-900"
                   : "text-dark300_light900"
-              } flex items-center justify-start gap-4 bg-transparent p-4`}
+              } flex items-center justify-start gap-2 bg-transparent p-3`}
             >
               <Image
                 src={item.imgURL}
@@ -83,14 +83,14 @@ const MobileNav = () => {
           <div className="flex flex-col gap-3">
             <SheetClose asChild>
               <Link href="/sign-in">
-                <Button className="small-medium btn-secondary min-h-[41] w-full rounded-lg px-4 py-3 shadow-none">
+                <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
                   <span className="primary-text-gradient">Log in</span>
                 </Button>
               </Link>
             </SheetClose>
             <SheetClose asChild>
               <Link href="/sign-up">
-                <Button className="small-medium light-border-2 text-dark400_light900 btn-tertiary min-h-[41] w-full rounded-lg px-4 py-3 shadow-none">
+                <Button className="small-medium light-border-2 text-dark400_light900 btn-tertiary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
                   Sign Up
                 </Button>
               </Link>
