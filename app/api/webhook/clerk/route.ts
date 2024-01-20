@@ -2,7 +2,7 @@
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
-import { WebhookEvent } from "@clerk/nextjs/server";
+import { WebhookEvent } from "@clerk/nextjs/api";
 import { Webhook } from "svix";
 
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.action";
