@@ -7,5 +7,5 @@ export const QuestionSchema = z.object({
 });
 
 export const AnswerSchema = z.object({
-  answer: z.string().min(1),
+  answer: z.string().min(100),
 });
