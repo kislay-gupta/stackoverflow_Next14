@@ -4,6 +4,7 @@ import {
   downVoteQuestion,
   upVoteQuestion,
 } from "@/lib/actions/question.action";
+import { toggleSaveQuestionParams } from "@/lib/actions/user.action";
 import { getFormattedNumber } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
@@ -28,9 +29,15 @@ const Votes = ({
   hasdownVoted,
   hasSaved,
 }: Props) => {
-  const handleSaved = () => {};
   const pathname = usePathname();
-  const router = useRouter();
+  // const router = useRouter();
+  const handleSaved = async () => {
+    await toggleSaveQuestionParams({
+      userId: JSON.parse(userId),
+      questionId: JSON.parse(itemId),
+      path: pathname,
+    });
+  };
   const handleVote = async (action: string) => {
     if (!userId) {
       return;
